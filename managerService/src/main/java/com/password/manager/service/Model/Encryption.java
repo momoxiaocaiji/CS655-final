@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Encryption {
     private String encryption;
+    private int workNum;
 }

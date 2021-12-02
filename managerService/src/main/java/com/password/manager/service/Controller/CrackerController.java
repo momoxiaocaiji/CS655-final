@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
+import java.net.Socket;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 public class CrackerController {
@@ -15,21 +19,18 @@ public class CrackerController {
     @Autowired
     private WorkerService workerService;
 
-    @Value("#{${worker}}")
-    private Map<String, String> maps;
-
     private static final Database database = new Database();
 
     @PostMapping("/start")
     public String startTheTask(@RequestBody Encryption encryption) {
         String enc = encryption.getEncryption();
-
         if (database.getData().containsKey(enc)) {
             return database.getData().get(enc);
         } else {
-            workerService.connect("192.168.0.13");
-            database.getData().put(enc, "data test");
-            return "Hello World!!!";
+            // get idle worker
+            String dyn = workerService.startWork(enc, encryption.getWorkNum());
+            database.getData().put(enc, dyn);
+            return dyn;
         }
     }
 }
