@@ -53,8 +53,8 @@ public class worker {
         for (int i = 0; i < 27; i++){
             alphabet[i] = (char)(65 + i);
         }
-        for (int i = 27; i < 57; i++){
-            alphabet[i] = (char)(70 + i);
+        for (int j = 27; j < 52; j++){
+            alphabet[j] = (char)(70 + j);
         }
         try{
             ServerSocket serverSocket = new ServerSocket(port);
