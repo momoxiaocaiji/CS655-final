@@ -69,10 +69,7 @@ public class WorkerService {
         try {
             for (int i = 1; i <= workNum; i++) {
                 int finalI = i;
-                Thread crackerThread = new Thread(() -> {
-                    invokeWorker(enc, finalI, workNum, workers.get(finalI));
-                });
-                crackerThread.start();
+                invokeWorker(enc, finalI, workNum, workers.get(finalI));
             }
 
             // query workers
