@@ -24,7 +24,7 @@ public class test {
                                 temp += alphabet[z];
                                 res = encryptMD5(temp);
                                 if (res.equals(data)){
-                                    code = res;
+                                    code = temp;
                                     done = true;
                                     return code;
                                 }
@@ -47,7 +47,7 @@ public class test {
             alphabet[j] = (char)(71 + j);
         }
         System.out.println(alphabet);
-        code = match("16bb5086b1b21b2e86adbfefacfb7fbd", 1, 1);
+        code = match("f6a6263167c92de8644ac998b3c4e4d1", 1, 1);
         System.out.println(code);
     }
 

@@ -33,7 +33,7 @@ public class worker {
                                 temp += alphabet[z];
                                 res = encryptMD5(temp);
                                 if (res.equals(data)){
-                                    code = res;
+                                    code = temp;
                                     done = true;
                                     return code;
                                 }
