@@ -41,7 +41,7 @@ public class test {
         return "error";
     }
     public static void main(String[] args){
-        for (int i = 0; i < 27; i++){
+        for (int i = 0; i < 26; i++){
             alphabet[i] = (char)(65 + i);
         }
         for (int j = 26; j < 52; j++){

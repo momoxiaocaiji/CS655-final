@@ -54,7 +54,7 @@ public class worker {
         int port = 9000;   // set corresponding port
         System.out.printf("Worker is running at %s \n", port);
         // Initialize the alphabet list
-        for (int i = 0; i < 27; i++){
+        for (int i = 0; i < 26; i++){
             alphabet[i] = (char)(65 + i);
         }
         for (int j = 26; j < 52; j++){
@@ -99,8 +99,11 @@ public class worker {
                             }
                         }
                         else{
-                            done = true;
-                            usethread = false;
+                            if (usethread){
+                                done = true;
+                                usethread = false;
+                            }
+
                         }
                     }
 
