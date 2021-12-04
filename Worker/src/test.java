@@ -48,7 +48,7 @@ public class test {
             alphabet[j] = (char)(71 + j);
         }
         System.out.println(alphabet);
-        code = match("8f113e38d28a79a5a451b16048cc2b72", 1, 1);
+        code = match("16a08135a7d44b3d6beac2d84f9067c6", 1, 1);
         System.out.println(code);
     }
 
