@@ -20,10 +20,10 @@ public class worker {
     public static void match(String data, int t, int r){
         String res;
         for (int i = (int)((r - 1) * (52 * (r / (double)t))); i < (r * 52 * (r / (double)t)); i++){
-            for (int j = 0; j < 53; j++){
-                for (int x = 0; x < 53; x++){
-                    for (int y = 0; y < 53; y++){
-                        for (int z = 0; z < 53; z++){
+            for (int j = 0; j < 52; j++){
+                for (int x = 0; x < 52; x++){
+                    for (int y = 0; y < 52; y++){
+                        for (int z = 0; z < 52; z++){
                             if (!done){
                                 String temp = "";
                                 temp += alphabet[i];
@@ -95,7 +95,7 @@ public class worker {
                     System.err.println("closing connection with client");
                     printWriter.close();
                     bufferedReader.close();
-                    socket.close();
+//                    socket.close();
                 }catch(IOException e){
                     printWriter.println(e.getMessage());
                     printWriter.flush();
