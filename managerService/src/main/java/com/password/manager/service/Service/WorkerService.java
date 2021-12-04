@@ -74,6 +74,27 @@ public class WorkerService {
         }
     }
 
+    private void stopWorkers(List<String> invokedWorkers) {
+        Socket worker = null;
+        for (String ip : invokedWorkers) {
+            try {
+                // Create a socket
+                worker = new Socket(ip, port);
+                PrintWriter os = new PrintWriter(worker.getOutputStream());
+
+                String msg = "finish";
+
+                os.println(msg);
+                os.flush();
+
+                worker.close();
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public String startWork(String enc, int workNum) {
         // invoke workers
         try {
@@ -89,7 +110,7 @@ public class WorkerService {
                 String str = "";
                 while (ite.hasNext()) {
                     str = ite.next();
-                    String res = queryWorker(enc, 1, 1, str);
+                    String res = queryWorker(enc, 1, workNum, str);
                     if (res.equals("error")) {
                         ite.remove();
                         System.out.println("The worker "+ str + " didn't get the result");
@@ -98,6 +119,12 @@ public class WorkerService {
                     }
                 }
             } while (dec.equals("wait") && invokedWorkers.size() != 0);
+
+            // get the right password
+            // broadcast workers which not stop
+            stopWorkers(invokedWorkers);
+
+            invokedWorkers.clear();
 
         } catch (Exception e) {
             e.printStackTrace();
