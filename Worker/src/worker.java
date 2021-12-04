@@ -17,7 +17,7 @@ public class worker {
     public static String encryptMD5(String str){
         return DigestUtils.md5Hex(str);
     }
-    public static void match(String data, int t, int r){
+    public static String match(String data, int t, int r){
         String res;
         for (int i = (int)((r - 1) * (52 * (r / (double)t))); i < (r * 52 * (r / (double)t)); i++){
             for (int j = 0; j < 52; j++){
@@ -34,17 +34,19 @@ public class worker {
                                 res = encryptMD5(temp);
                                 if (res.equals(data)){
                                     code = res;
+                                    done = true;
+                                    return code;
                                 }
                             }
                             else{
-                                code = "error";
+                                return "error";
                             }
                         }
                     }
                 }
             }
         }
-        code = "error";
+        return "error";
     }
     public static void main(String[] args) throws IOException {
         int port = 9000;   // set corresponding port
@@ -53,8 +55,8 @@ public class worker {
         for (int i = 0; i < 27; i++){
             alphabet[i] = (char)(65 + i);
         }
-        for (int j = 27; j < 52; j++){
-            alphabet[j] = (char)(70 + j);
+        for (int j = 26; j < 52; j++){
+            alphabet[j] = (char)(71 + j);
         }
         try{
             ServerSocket serverSocket = new ServerSocket(port);
@@ -76,8 +78,8 @@ public class worker {
                         if(!usethread){
                             usethread = true;
                             Thread decrypt = new Thread(() -> {
-                                match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
-                                done = true;
+                                code = match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
+//                                done = true;
                                 usethread = false;
                             });
                             decrypt.start();
