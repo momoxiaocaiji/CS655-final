@@ -19,7 +19,8 @@ public class worker {
     }
     public static String match(String data, int t, int r){
         String res;
-        for (int i = (int)((r - 1) * (52 * (r / (double)t))); i < (r * 52 * (r / (double)t)); i++){
+        String tempres;
+        for (int i = (int)((52 * ((r - 1) / (double)t))); i < (52 * (r / (double)t)); i++){
             for (int j = 0; j < 52; j++){
                 for (int x = 0; x < 52; x++){
                     for (int y = 0; y < 52; y++){
@@ -31,11 +32,11 @@ public class worker {
                                 temp += alphabet[x];
                                 temp += alphabet[y];
                                 temp += alphabet[z];
-                                res = encryptMD5(temp);
-                                if (res.equals(data)){
-                                    code = temp;
+                                tempres = encryptMD5(temp);
+                                if (tempres.equals(data)){
+                                    res = temp;
                                     done = true;
-                                    return code;
+                                    return res;
                                 }
                             }
                             else{
