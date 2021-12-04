@@ -88,6 +88,7 @@ public class worker {
                         if (done){
                             printWriter.println(code);
                             printWriter.flush();
+                            done = false;
                         }
                         else{
                             printWriter.println("wait");
@@ -98,7 +99,7 @@ public class worker {
                     System.err.println("closing connection with client");
                     printWriter.close();
                     bufferedReader.close();
-//                    socket.close();
+                    socket.close();
                 }catch(IOException e){
                     printWriter.println(e.getMessage());
                     printWriter.flush();
