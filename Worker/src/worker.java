@@ -40,6 +40,7 @@ public class worker {
                                 }
                             }
                             else{
+                                done = false;
                                 return "error";
                             }
                         }
