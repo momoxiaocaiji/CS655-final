@@ -1,13 +1,11 @@
 package com.password.manager.service.Service;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -18,23 +16,35 @@ public class WorkerService {
     @Value("#{${worker}}")
     private Map<Integer, String> workers;
 
-    private final Map<String, Socket> invokedWorkers = new HashMap<>();
+    private final List<String> invokedWorkers = new ArrayList<>();
 
     private static String dec = "wait";
 
-    private void queryWorker(Socket worker) {
+    private String queryWorker(String enc, int range, int workerNum, String ip) {
+
+        Socket worker = null;
         try {
+            // Create a socket
+            worker = new Socket(ip, port);
             PrintWriter os = new PrintWriter(worker.getOutputStream());
             BufferedReader is = new BufferedReader(new InputStreamReader(worker.getInputStream()));
 
-            String msg = "finish";
+            String msg = workerNum + " " + range + " " + enc;
+            //String msg = "finish";
 
             os.println(msg);
             os.flush();
 
-            dec = is.readLine();
+            String result = is.readLine();
+
+            worker.close();
+            os.close();
+            is.close();
+
+            return result;
         } catch (IOException e) {
             e.printStackTrace();
+            return "wait";
         }
     }
 
@@ -55,10 +65,10 @@ public class WorkerService {
 
             os.println(msg);
             os.flush();
-
+            worker.close();
             os.close();
 
-            invokedWorkers.put(host, worker);
+            invokedWorkers.add(host);
         } catch (IOException e) {
             System.out.println("Worker terminates the connection abnormally!!");
         }
@@ -75,17 +85,20 @@ public class WorkerService {
             // query workers
             do {
                 TimeUnit.MILLISECONDS.sleep(100);
-                for (Socket socket : invokedWorkers.values()) {
-                    Thread crackerThread = new Thread(() -> {
-                        queryWorker(socket);
-                    });
-                    crackerThread.start();
+                Iterator<String> ite = invokedWorkers.iterator();
+                String str = "";
+                while (ite.hasNext()) {
+                    str = ite.next();
+                    String res = queryWorker(enc, 1, 1, str);
+                    if (res.equals("error")) {
+                        ite.remove();
+                        System.out.println("The worker "+ str + " didn't get the result");
+                    } else {
+                        dec = res;
+                    }
                 }
-            } while (dec.equals("wait") || dec.equals("error"));
+            } while (dec.equals("wait") && invokedWorkers.size() != 0);
 
-            for (Socket socket : invokedWorkers.values()) {
-                socket.close();
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
