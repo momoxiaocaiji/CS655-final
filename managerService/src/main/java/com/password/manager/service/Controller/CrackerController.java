@@ -24,7 +24,7 @@ public class CrackerController {
     @PostMapping("/start")
     public String startTheTask(@RequestBody Encryption encryption) {
         String enc = encryption.getEncryption();
-        if (database.getData().containsKey(enc)) {
+        if (encryption.isUseCache() && database.getData().containsKey(enc)) {
             return database.getData().get(enc);
         } else {
             // get idle worker

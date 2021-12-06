@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class Encryption {
     private String encryption;
     private int workNum;
+    private boolean useCache;
 }
