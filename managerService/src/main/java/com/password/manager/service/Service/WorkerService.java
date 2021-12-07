@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -20,22 +22,28 @@ public class WorkerService {
 
     private static String dec = "wait";
 
+    private static int totalPacket, totalSize;
+    private static long totalTime;
+
     private String queryWorker(String enc, int range, int workerNum, String ip) {
 
         Socket worker = null;
         try {
             // Create a socket
+            long st = new Date().getTime();
             worker = new Socket(ip, port);
             PrintWriter os = new PrintWriter(worker.getOutputStream());
             BufferedReader is = new BufferedReader(new InputStreamReader(worker.getInputStream()));
 
             String msg = workerNum + " " + range + " " + enc;
-            //String msg = "finish";
+            totalSize+= msg.getBytes(StandardCharsets.UTF_8).length;
+            totalPacket += 1;
 
             os.println(msg);
             os.flush();
 
             String result = is.readLine();
+            totalTime += new Date().getTime() - st;
 
             worker.close();
             os.close();
@@ -56,6 +64,7 @@ public class WorkerService {
 
         try {
             // Create a socket
+            long st = new Date().getTime();
             worker = new Socket(host, port);
             PrintWriter os = new PrintWriter(worker.getOutputStream());
 
@@ -63,8 +72,13 @@ public class WorkerService {
             // total worker num + invoked worker index + encryption
             String msg = workerNum + " " + range + " " + enc;
 
+            totalSize+= msg.getBytes(StandardCharsets.UTF_8).length;
+            totalPacket += 1;
+
             os.println(msg);
             os.flush();
+
+            totalTime += new Date().getTime() - st;
             worker.close();
             os.close();
 
@@ -79,14 +93,18 @@ public class WorkerService {
         for (String ip : invokedWorkers) {
             try {
                 // Create a socket
+                long st = new Date().getTime();
                 worker = new Socket(ip, port);
                 PrintWriter os = new PrintWriter(worker.getOutputStream());
 
                 String msg = "finish";
+                totalSize+= msg.getBytes(StandardCharsets.UTF_8).length;
+                totalPacket += 1;
 
                 os.println(msg);
                 os.flush();
 
+                totalTime += new Date().getTime() - st;
                 worker.close();
                 os.close();
             } catch (IOException e) {
@@ -125,6 +143,16 @@ public class WorkerService {
             stopWorkers(invokedWorkers);
 
             invokedWorkers.clear();
+            //
+            System.out.println("------------------------");
+            System.out.println("Cracker avg rtt: " + totalTime / (double) (totalSize * 1000));
+            double throughput = totalSize / (totalTime / (double) 1000);
+            System.out.println("Cracker avg throughput: " + throughput);
+            System.out.println("------------------------");
+            //
+            totalPacket = 0;
+            totalSize = 0;
+            totalTime = 0;
 
         } catch (Exception e) {
             e.printStackTrace();
