@@ -89,7 +89,6 @@ public class worker {
                                     printWriter.println(code);
                                     printWriter.flush();
                                     done = false;
-                                    usethread = false;
                                 }
                                 else{
                                     printWriter.println("wait");
@@ -98,25 +97,18 @@ public class worker {
                             } else {
                                 String rank = tempList[1];
                                 String finalData = tempList[2];
-                                if(!usethread){
-                                    usethread = true;
                                     Thread decrypt = new Thread(() -> {
                                         code = match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
 //                                done = true;
 
                                     });
                                     decrypt.start();
-                                }
                             }
 
 
                         }
                         else{
-                            if (usethread){
-                                done = true;
-                                usethread = false;
-                            }
-
+                            done = true;
                         }
                     }
 
