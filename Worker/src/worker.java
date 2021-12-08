@@ -84,6 +84,9 @@ public class worker {
                         int lengthofdata = tempList.length;
                         if (lengthofdata == 3){
                             String totalnum = tempList[0];
+                            if (Integer.parseInt(totalnum) == 0) {
+                                break;
+                            }
                             String rank = tempList[1];
                             String finalData = tempList[2];
                             if(!usethread){
