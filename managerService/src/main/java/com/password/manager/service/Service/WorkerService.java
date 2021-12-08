@@ -43,6 +43,8 @@ public class WorkerService {
             os.flush();
 
             String result = is.readLine();
+            long ft = new Date().getTime();
+            System.out.println(ft - st);
             totalTime += new Date().getTime() - st;
 
             worker.close();
@@ -123,7 +125,7 @@ public class WorkerService {
 
             // query workers
             do {
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(500);
                 Iterator<String> ite = invokedWorkers.iterator();
                 String str = "";
                 while (ite.hasNext()) {
@@ -148,8 +150,8 @@ public class WorkerService {
             invokedWorkers.clear();
             //
             System.out.println("------------------------");
-            System.out.println("Cracker avg rtt: " + totalTime / (double) (totalSize * 1000));
-            double throughput = totalSize / (totalTime / (double) 1000);
+            System.out.println("Cracker avg rtt: " + (totalTime / (double) (totalPacket * 1000)));
+            double throughput = totalSize * 8 / (totalTime / (double) 1000);
             System.out.println("Cracker avg throughput: " + throughput);
             System.out.println("------------------------");
             //
