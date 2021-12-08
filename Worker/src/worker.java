@@ -91,7 +91,7 @@ public class worker {
                                 Thread decrypt = new Thread(() -> {
                                     code = match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
 //                                done = true;
-                                    usethread = false;
+
                                 });
                                 decrypt.start();
                             }
@@ -99,6 +99,7 @@ public class worker {
                                 printWriter.println(code);
                                 printWriter.flush();
                                 done = false;
+                                usethread = false;
                             }
                             else{
                                 printWriter.println("wait");
