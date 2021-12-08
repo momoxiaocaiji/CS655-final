@@ -84,26 +84,32 @@ public class worker {
                         int lengthofdata = tempList.length;
                         if (lengthofdata == 3){
                             String totalnum = tempList[0];
-                            String rank = tempList[1];
-                            String finalData = tempList[2];
-                            if(!usethread){
-                                usethread = true;
-                                Thread decrypt = new Thread(() -> {
-                                    code = match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
-//                                done = true;
+                            if (Integer.parseInt(totalnum) == 0) {
+                                if (done){
+                                    printWriter.println(code);
+                                    printWriter.flush();
+                                    done = false;
                                     usethread = false;
-                                });
-                                decrypt.start();
+                                }
+                                else{
+                                    printWriter.println("wait");
+                                    printWriter.flush();
+                                }
+                            } else {
+                                String rank = tempList[1];
+                                String finalData = tempList[2];
+                                if(!usethread){
+                                    usethread = true;
+                                    Thread decrypt = new Thread(() -> {
+                                        code = match(finalData, Integer.parseInt(totalnum), Integer.parseInt(rank));
+//                                done = true;
+
+                                    });
+                                    decrypt.start();
+                                }
                             }
-                            if (done){
-                                printWriter.println(code);
-                                printWriter.flush();
-                                done = false;
-                            }
-                            else{
-                                printWriter.println("wait");
-                                printWriter.flush();
-                            }
+
+
                         }
                         else{
                             if (usethread){
