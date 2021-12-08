@@ -20,26 +20,22 @@ public class worker {
     public static String match(String data, int t, int r){
         String res;
         String tempres;
+        int sum = 0;
         for (int i = 0; i < 52; i++){
             for (int j = 0; j < 52; j++){
                 for (int x = 0; x < 52; x++){
                     for (int y = 0; y < 52; y++){
                         for (int z = 0; z < 52; z++){
                             if (!done){
-                                int sum = 0;
+                                sum ++;
                                 String temp = "";
                                 temp += alphabet[i];
-                                sum += (alphabet[i] - 'A') * 52 * 52 * 52 * 52;
                                 temp += alphabet[j];
-                                sum += (alphabet[j] - 'A') * 52 * 52 * 52;
                                 temp += alphabet[x];
-                                sum += (alphabet[x] - 'A') * 52 * 52;
                                 temp += alphabet[y];
-                                sum += (alphabet[x] - 'A') * 52;
                                 temp += alphabet[z];
-                                sum += (alphabet[x] - 'A');
                                 System.out.println(sum);
-                                if (sum % t == r) {
+                                if (sum % t == r - 1) {
                                     tempres = encryptMD5(temp);
                                     System.out.println("---------------------");
                                     System.out.println("TEMP: " + temp);
