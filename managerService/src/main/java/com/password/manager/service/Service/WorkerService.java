@@ -70,7 +70,7 @@ public class WorkerService {
 
             // message format
             // total worker num + invoked worker index + encryption
-            String msg = workerNum + " " + range + " " + enc;
+            String msg = 4 + " " + 2 + " " + enc;
 
             totalSize+= msg.getBytes(StandardCharsets.UTF_8).length;
             totalPacket += 1;
