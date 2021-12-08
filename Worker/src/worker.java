@@ -95,6 +95,7 @@ public class worker {
                                     printWriter.flush();
                                 }
                             } else {
+                                done = false;
                                 String rank = tempList[1];
                                 String finalData = tempList[2];
                                 Thread decrypt = new Thread(() -> {
