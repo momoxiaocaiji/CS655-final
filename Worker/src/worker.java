@@ -35,6 +35,8 @@ public class worker {
                                 tempres = encryptMD5(temp);
                                 if (tempres.equals(data)){
                                     res = temp;
+                                    System.out.println("---------------------");
+                                    System.out.println("TEMP: " + temp);
                                     done = true;
                                     return res;
                                 }
@@ -107,7 +109,7 @@ public class worker {
                         }
                     }
 
-                    System.err.println("closing connection with client");
+                    //System.err.println("closing connection with client");
                     printWriter.close();
                     bufferedReader.close();
                     socket.close();
