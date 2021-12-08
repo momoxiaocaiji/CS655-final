@@ -128,7 +128,7 @@ public class WorkerService {
                 String str = "";
                 while (ite.hasNext()) {
                     str = ite.next();
-                    String res = queryWorker(enc, 1, workNum, str);
+                    String res = queryWorker(enc, 1, 0, str);
                     if (res.equals("error")) {
                         ite.remove();
                         System.out.println("The worker "+ str + " didn't get the result");
