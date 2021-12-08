@@ -1,0 +1,239 @@
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="Controller" component_id="urn:publicid:IDN+genirack.nyu.edu+node+pc5" component_manager_id="urn:publicid:IDN+genirack.nyu.edu+authority+cm" exclusive="false" sliver_id="urn:publicid:IDN+genirack.nyu.edu+sliver+82304">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-14.genirack.nyu.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-14.genirack.nyu.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-14.genirack.nyu.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-14.genirack.nyu.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-14.genirack.nyu.edu"/>
+      <emulab:imageable available="true"/>
+    </services>
+    <emulab:vnode disk_image="GeniSlices/ControllerAll:0" hardware_type="pcvm" name="pcvm5-14"/>
+    <host ipv4="192.86.139.70" name="Controller.final-ZXC.ch-geni-net.genirack.nyu.edu"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-4" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc3" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70926" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm3-9.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm3-9.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm3-9.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm3-9.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm3-9.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm3-9" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-4.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.146"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-7" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc3" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70927" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm3-12.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm3-12.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm3-12.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm3-12.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm3-12.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm3-12" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-7.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.186"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-2" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc5" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70930" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-5.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-5.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-5.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-5.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-5.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm5-5" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-2.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.183"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-3" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc3" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70925" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm3-8.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm3-8.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm3-8.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm3-8.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm3-8.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm3-8" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-3.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.155"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-8" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc3" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70928" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm3-13.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm3-13.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm3-13.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm3-13.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm3-13.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm3-13" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-8.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.185"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-9" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc5" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70933" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-17.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-17.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-17.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-17.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-17.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm5-17" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-9.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.163"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-1" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc3" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70924" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm3-1.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm3-1.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm3-1.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm3-1.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm3-1.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm3-1" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-1.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.157"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-6" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc5" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70932" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-15.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-15.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-15.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-15.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-15.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm5-15" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-6.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.162"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-5" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc5" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70931" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-12.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-12.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-12.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-12.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-12.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm5-12" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-5.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.182"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="node-10" component_manager_id="urn:publicid:IDN+instageni.stanford.edu+authority+cm" component_id="urn:publicid:IDN+instageni.stanford.edu+node+pc5" sliver_id="urn:publicid:IDN+instageni.stanford.edu+sliver+70929" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm5-2.instageni.stanford.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm5-2.instageni.stanford.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm5-2.instageni.stanford.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm5-2.instageni.stanford.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm5-2.instageni.stanford.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm5-2" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="node-10.final-ZXC.ch-geni-net.instageni.stanford.edu" ipv4="171.67.92.184"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="Controller" component_manager_id="urn:publicid:IDN+instageni.idre.ucla.edu+authority+cm" component_id="urn:publicid:IDN+instageni.idre.ucla.edu+node+pc1" sliver_id="urn:publicid:IDN+instageni.idre.ucla.edu+sliver+76978" exclusive="false">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <nomac xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm1-35.instageni.idre.ucla.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm1-35.instageni.idre.ucla.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm1-35.instageni.idre.ucla.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm1-35.instageni.idre.ucla.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm1-35.instageni.idre.ucla.edu"/>
+      <emulab:imageable available="true"/>
+      <execute command="sudo cp -r /local/* /tmp/" shell="/bin/sh"/>
+      <execute command="sudo chmod -R 777 /tmp/*" shell="/bin/sh"/>
+    </services>
+    <emulab:vnode name="pcvm1-35" hardware_type="pcvm" disk_image="GeniSlices/ControllerAll:0"/>
+    <host name="Controller.final-ZXC.ch-geni-net.instageni.idre.ucla.edu" ipv4="164.67.126.46"/>
+  </node>
+  <node xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" client_id="Controller" component_id="urn:publicid:IDN+geni.uchicago.edu+node+pc2" component_manager_id="urn:publicid:IDN+geni.uchicago.edu+authority+cm" exclusive="false" sliver_id="urn:publicid:IDN+geni.uchicago.edu+sliver+58247">
+    <icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/Xen-VM.svg"/>
+    <routable_control_ip xmlns="http://www.protogeni.net/resources/rspec/ext/emulab/1"/>
+    <sliver_type name="emulab-xen">
+      <disk_image name="urn:publicid:IDN+instageni.cs.princeton.edu+image+ch-geni-net:ControllerAll" url="https://www.instageni.cs.princeton.edu/image_metadata.php?uuid=15258bb2-313a-11e9-a1f8-000099989701"/>
+    </sliver_type>
+    <services>
+      <login authentication="ssh-keys" hostname="pcvm2-6.geni.uchicago.edu" port="22" username="matta"/>
+      <login authentication="ssh-keys" hostname="pcvm2-6.geni.uchicago.edu" port="22" username="chouchou"/>
+      <login authentication="ssh-keys" hostname="pcvm2-6.geni.uchicago.edu" port="22" username="zhangzs"/>
+      <login authentication="ssh-keys" hostname="pcvm2-6.geni.uchicago.edu" port="22" username="fahadf"/>
+      <emulab:console server="pcvm2-6.geni.uchicago.edu"/>
+      <emulab:imageable available="true"/>
+    </services>
+    <emulab:vnode disk_image="GeniSlices/ControllerAll:0" hardware_type="pcvm" name="pcvm2-6"/>
+    <host ipv4="192.170.230.108" name="Controller.final-ZXC.ch-geni-net.geni.uchicago.edu"/>
+  </node>
+  <rs:site_info xmlns:rs="http://www.protogeni.net/resources/rspec/ext/site-info/1">
+    <rs:location country="" latitude="41.785644" longitude="-87.597098"/>
+  </rs:site_info>
+</rspec>

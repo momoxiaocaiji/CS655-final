@@ -43,8 +43,6 @@ public class WorkerService {
             os.flush();
 
             String result = is.readLine();
-            long ft = new Date().getTime();
-            System.out.println(ft - st);
             totalTime += new Date().getTime() - st;
 
             worker.close();
