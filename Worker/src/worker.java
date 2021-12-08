@@ -33,10 +33,10 @@ public class worker {
                                 temp += alphabet[y];
                                 temp += alphabet[z];
                                 tempres = encryptMD5(temp);
+                                System.out.println("---------------------");
+                                System.out.println("TEMP: " + temp);
                                 if (tempres.equals(data)){
                                     res = temp;
-                                    System.out.println("---------------------");
-                                    System.out.println("TEMP: " + temp);
                                     done = true;
                                     return res;
                                 }
