@@ -134,6 +134,9 @@ public class WorkerService {
                         System.out.println("The worker "+ str + " didn't get the result");
                     } else {
                         dec = res;
+                        if (!dec.equals("wait")){
+                            break;
+                        }
                     }
                 }
             } while (dec.equals("wait") && invokedWorkers.size() != 0);
