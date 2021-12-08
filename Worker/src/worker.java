@@ -20,25 +20,34 @@ public class worker {
     public static String match(String data, int t, int r){
         String res;
         String tempres;
-        for (int i = (int)((52 * ((r - 1) / (double)t))); i < (52 * (r / (double)t)); i++){
+        for (int i = 0; i < 52; i++){
             for (int j = 0; j < 52; j++){
                 for (int x = 0; x < 52; x++){
                     for (int y = 0; y < 52; y++){
                         for (int z = 0; z < 52; z++){
                             if (!done){
+                                int sum = 0;
                                 String temp = "";
                                 temp += alphabet[i];
+                                sum += (alphabet[i] - 'A') * 52 * 52 * 52 * 52;
                                 temp += alphabet[j];
+                                sum += (alphabet[j] - 'A') * 52 * 52 * 52;
                                 temp += alphabet[x];
+                                sum += (alphabet[x] - 'A') * 52 * 52;
                                 temp += alphabet[y];
+                                sum += (alphabet[x] - 'A') * 52;
                                 temp += alphabet[z];
-                                tempres = encryptMD5(temp);
-                                System.out.println("---------------------");
-                                System.out.println("TEMP: " + temp);
-                                if (tempres.equals(data)){
-                                    res = temp;
-                                    done = true;
-                                    return res;
+                                sum += (alphabet[x] - 'A');
+                                System.out.println(sum);
+                                if (sum % t == r) {
+                                    tempres = encryptMD5(temp);
+                                    System.out.println("---------------------");
+                                    System.out.println("TEMP: " + temp);
+                                    if (tempres.equals(data)){
+                                        res = temp;
+                                        done = true;
+                                        return res;
+                                    }
                                 }
                             }
                             else{
