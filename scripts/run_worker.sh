@@ -7,4 +7,4 @@ rm -r CS655-final-worker
 rm worker.zip
 cd Worker/src
 javac -cp .:../lib/commons-codec-1.9.jar worker.java
-java -cp .:..lib/commons-codec-1.9.jar worker
+java -cp .:../lib/commons-codec-1.9.jar worker
